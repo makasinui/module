@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import { type IPost } from '~/types/posts';
+import type { IPost } from '~/types/posts';
 interface IProps {
     posts: IPost[];
 }

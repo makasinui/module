@@ -5,8 +5,8 @@
             v-if="!isLoading"
             :posts="paginatedPosts" 
         />
-        <Loader v-else />
-        <Pagination
+        <UiLoader v-else />
+        <UiPagination
             :pages="pages"
             :model-value="page"
             @update:model-value="onChangePage" 
@@ -15,8 +15,6 @@
 </template>
 
 <script lang="ts" setup>
-import Loader from '../ui/Loader.vue';
-import Pagination from '../ui/pagination/Pagination.vue';
 import { useArticles } from './composable';
 
 const { 
