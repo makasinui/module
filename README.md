@@ -1,3 +1,6 @@
+# Тестовое @makasinui
+# Выложил на netlify: ```https://lucky-ganache-5875da.netlify.app/```
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
