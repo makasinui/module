@@ -41,7 +41,6 @@ const { modelValue, pages } = toRefs(props);
 const { visiblePages, showNextArrow } = usePagination(modelValue, pages);
 
 const onChangePage = (page: number) => {
-    console.log(page, props.modelValue)
     if (page !== props.modelValue) {
         emit('update:modelValue', page);
     }
