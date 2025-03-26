@@ -1,6 +1,8 @@
 <template>
     <NuxtLink :to="`/article/${post.id}`" class="flex flex-col gap-6 min-h-[360px]" :class="{'-mt-5': firstBlock}">
-        <img class="w-full h-full min-h-[270px]" :src="image" @error="onError" :alt="post.title">
+        <div class="min-h-[270px]">
+            <img class="w-full" :src="image" @error="onError" :alt="post.title">
+        </div>
         <p class="text-[20px] leading-[120%]">
             {{ post.preview }}
         </p>

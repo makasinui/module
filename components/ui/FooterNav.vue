@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav class="pb-[30px]">
         <ul class="flex gap-[32px]">
             <li
                 v-for="item in items"

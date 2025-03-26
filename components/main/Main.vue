@@ -1,6 +1,6 @@
 <template>
-    <section class="mt-[120px] mx-[112px] flex flex-col gap-[60px]">
-        <h1 class="text-[84px] leading-[100%]">Articles</h1>
+    <section class="flex flex-col gap-[60px]">
+        <UiTitle>Articles</UiTitle>
         <Posts
             v-if="!isLoading"
             :posts="paginatedPosts" 

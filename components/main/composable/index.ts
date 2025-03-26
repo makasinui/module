@@ -28,7 +28,7 @@ export const useArticles = () => {
     const fetchData = async () => {
         try {
             isLoading.value = true;
-            const { data } = useFetch<IPost[]>('https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts/');
+            const { data } = await useFetch<IPost[]>('https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts/');
 
             if (data?.value) {
                 posts.value = data.value;
