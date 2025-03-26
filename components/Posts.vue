@@ -4,7 +4,7 @@
             v-for="(post, idx) in posts"
             :key="post.id"
             :post="post"
-            :first-block="idx === 0"
+            :index="idx"
         />
     </div>
 </template>
