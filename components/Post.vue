@@ -1,8 +1,6 @@
 <template>
-    <NuxtLink
-        :to="`/article/${post.id}`"
-        class="flex flex-col gap-6 min-h-[360px]"
-        :class="{ '-mt-5': index === 0 }"
+    <div
+        class="flex group relative flex-col gap-6 min-h-[360px] hover:-translate-y-5 transition-all duration-300"
     >
         <img
             class="w-full h-[280px] object-cover"
@@ -14,7 +12,10 @@
         <p class="text-[20px] leading-[120%]" :class="{'pt-[10px]': hasAdditionalPadding}">
             {{ post.preview }}
         </p>
-    </NuxtLink>
+        <NuxtLink :to="`/article/${post.id}`" class="text-[#E2BEFF] text-[20px] bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+            Read more
+        </NuxtLink>
+    </div>
 </template>
 
 <script lang="ts" setup>
