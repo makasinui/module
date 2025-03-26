@@ -10,7 +10,7 @@
             {{ i }}
         </div>
         <div
-            class="cursor-pointer"
+            class="cursor-pointer size-[44px] border border-[#E8E8E8] flex items-center justify-center rounded-xl"
             v-if="showNextArrow"
             @click="onChangePage(modelValue + 1)"
         >
