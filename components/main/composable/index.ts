@@ -7,9 +7,8 @@ export const useArticles = () => {
     const page = ref(1);
     const pages = ref(0);
 
-    const getPaginatedData = () => {
+    const getPaginatedData = (page: number) => {
         const perPage = 8;
-        const currentPage = page.value;
         
         const data = posts.value;
         const paginatedList = [];
@@ -22,10 +21,8 @@ export const useArticles = () => {
         }
 
         paginatedList.push(result);
-        pages.value = data.length / page.value;
-        console.log(pages.value)
-        return paginatedList[currentPage - 1];
-
+        pages.value = Math.ceil(data.length / perPage);
+        return paginatedList[page - 1];
     }
 
     const fetchData = async () => {
@@ -36,7 +33,7 @@ export const useArticles = () => {
             if (data?.value) {
                 posts.value = data.value;
 
-                const paginatedData = getPaginatedData();
+                const paginatedData = getPaginatedData(page.value);
                 paginatedPosts.value = paginatedData;
             }
         } catch (err) {
@@ -46,11 +43,18 @@ export const useArticles = () => {
         }
     };
 
+    const onChangePage = (ev: number) => {
+        page.value = ev;
+        paginatedPosts.value = getPaginatedData(page.value);
+    }
+
     return {
         paginatedPosts,
         isLoading,
         page,
+        pages,
         fetchData,
         getPaginatedData,
+        onChangePage,
     };
 };

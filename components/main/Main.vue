@@ -3,16 +3,30 @@
         <h1 class="text-[84px] leading-[100%]">Articles</h1>
         <Posts
             v-if="!isLoading"
-            :posts="paginatedPosts" />
+            :posts="paginatedPosts" 
+        />
         <Loader v-else />
+        <Pagination
+            :pages="pages"
+            :model-value="page"
+            @update:model-value="onChangePage" 
+        />
     </section>
 </template>
 
 <script lang="ts" setup>
 import Loader from '../ui/Loader.vue';
+import Pagination from '../ui/pagination/Pagination.vue';
 import { useArticles } from './composable';
 
-const { paginatedPosts, isLoading, page, fetchData, getPaginatedData } = useArticles();
+const { 
+    paginatedPosts, 
+    isLoading, 
+    page, 
+    pages, 
+    fetchData,
+    onChangePage
+} = useArticles();
 
 fetchData();
 </script>
