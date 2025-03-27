@@ -1,3 +1,4 @@
+import { httpGetPost } from '~/api/post';
 import type { IPost } from '~/types/posts';
 export const useArticle = (id: string) => {
     const isLoading = ref(false);
@@ -7,14 +8,11 @@ export const useArticle = (id: string) => {
     const fetchData = async () => {
         try {
             isLoading.value = true;
-            const { data } = await useFetch<IPost>('https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts/' + id)
-            
-            if(data?.value) {
-                article.value = data.value;
+            const data = await httpGetPost(id);
+            if(data?.id) {
+                article.value = data;
                 image.value = article.value.image;
             }
-            
-
         } catch(err) {
             console.error(err);
         } finally {

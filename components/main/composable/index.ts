@@ -1,3 +1,4 @@
+import { httpGetPosts } from '~/api/post';
 import type { IPost } from '~/types/posts';
 
 export const useArticles = () => {
@@ -28,14 +29,12 @@ export const useArticles = () => {
     const fetchData = async () => {
         try {
             isLoading.value = true;
-            const { data } = await useFetch<IPost[]>('https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts/');
+            const data = await httpGetPosts();
 
-            if (data?.value) {
-                posts.value = data.value;
-
-                const paginatedData = getPaginatedData(page.value);
-                paginatedPosts.value = paginatedData;
-            }
+            posts.value = data;
+            const paginatedData = getPaginatedData(page.value);
+            paginatedPosts.value = paginatedData;
+            
         } catch (err) {
             console.error(err);
         } finally {
